@@ -1,5 +1,6 @@
 import os
 
+bind = "127.0.0.1:5000"
 workers = int(os.environ.get('GUNICORN_PROCESSES', '3'))
 threads = int(os.environ.get('GUNICORN_THREADS', '1'))
 
