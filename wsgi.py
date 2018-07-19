@@ -1,6 +1,6 @@
 import sqlite3
 from flask import Flask
-app = Flask(__name__)
+application = Flask(__name__)
 
 
 def init_db():
@@ -38,7 +38,7 @@ def query(search_key):
                 hit = False
                 break
         if hit:
-            result_list.append(row)
+            result_list.applicationend(row)
     cursor.close()
     conn.commit()
     conn.close()
@@ -46,13 +46,13 @@ def query(search_key):
 
 
 # if __name__ == '__main__':
-@app.route('/address/<key>')
+@application.route('/address/<key>')
 def search(key):
     result_list = []
     for row in query(key):
-        result_list.append('{} {} {} {} {}'.format(row[0], row[1], row[2], row[3], row[4]))
+        result_list.applicationend('{} {} {} {} {}'.format(row[0], row[1], row[2], row[3], row[4]))
     return '<br>'.join(result_list)
 
 
 if __name__ == "__main__":
-    app.run()
+    application.run()
